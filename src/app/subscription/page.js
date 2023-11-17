@@ -1,28 +1,48 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function subscription() {
   const [subscription, setSubscription] = useState({
     subscriptionType: "monthly",
     subscriptionPlan: "basic",
   });
+  useEffect(() => {
+    if (!localStorage.getItem("data")) {
+      window.location.href = "/login";
+    }
+  }, []);
   return (
     <section class="bg-white dark:bg-gray-900">
       <div class="container px-6 py-8 mx-auto">
         <div class="max-w-2xl p-1.5 mx-auto overflow-hidden bg-gray-100 rounded-lg dark:bg-gray-800">
           <div class="grid gap-3 md:grid-cols-3">
-            <button class="px-3 py-2 font-medium text-gray-800 uppercase transition-colors duration-300 transform bg-transparent rounded-lg focus:outline-none dark:text-gray-200 dark:hover:bg-gray-600 hover:bg-gray-200">
+            <button
+              onClick={() =>
+                setSubscription({
+                  ...subscription,
+                  subscriptionPlan: "monthly",
+                })
+              }
+              class={`${
+                subscription?.subscriptionType == "monthly" ? "bg-gray-200" : ""
+              } px-3 py-2 font-medium text-gray-800 uppercase transition-colors duration-300 transform bg-transparent rounded-lg focus:outline-none dark:text-gray-200 dark:hover:bg-gray-600 hover:bg-gray-200`}
+            >
               Monthly
             </button>
 
-            <button class="flex items-center justify-center px-3 py-2 font-medium text-gray-800 uppercase transition-colors duration-300 transform bg-gray-200 rounded-lg dark:bg-gray-700 focus:outline-none dark:text-gray-200">
-              <span class="mx-1">Biannually</span>
-              <span class="text-xs mx-1 font-normal text-white bg-blue-500 rounded-full py-0.5 px-1.5">
-                save 10%
-              </span>
-            </button>
-
-            <button class="flex items-center justify-center px-3 py-2 font-medium text-gray-800 uppercase transition-colors duration-300 transform bg-transparent rounded-lg focus:outline-none dark:text-gray-200 dark:hover:bg-gray-600 hover:bg-gray-200">
+            <button
+              onClick={() =>
+                setSubscription({
+                  ...subscription,
+                  subscriptionType: "annually",
+                })
+              }
+              class={`${
+                subscription?.subscriptionType == "annually"
+                  ? "bg-gray-200"
+                  : ""
+              } flex items-center justify-center px-3 py-2 font-medium text-gray-800 uppercase transition-colors duration-300 transform bg-transparent rounded-lg focus:outline-none dark:text-gray-200 dark:hover:bg-gray-600 hover:bg-gray-200`}
+            >
               <span class="mx-1">Annually</span>
               <span class="text-xs mx-1 font-normal text-white bg-blue-500 rounded-full py-0.5 px-1.5">
                 save 20%

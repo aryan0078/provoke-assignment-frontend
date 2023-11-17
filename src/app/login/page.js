@@ -7,9 +7,9 @@ export default function login() {
   const [password, setPassword] = React.useState("");
   const handleLogin = async () => {
     const { data, status, message } = await API.login(email, password);
-    if (status) {
-      localStorage.setItem("data", data);
-      alert("Login success");
+    if (success) {
+      localStorage.setItem("data", JSON.stringify(data));
+      window.location.href = "/subscription";
     } else {
       alert(message);
     }
