@@ -7,7 +7,7 @@ export default function Home() {
   useEffect(() => {
     if (localStorage.getItem("data")) {
       setIsLoggedIn(true);
-      window.location.href = "/app";
+      window.location.href = "/subscription";
     } else {
       window.location.href = "/login";
     }

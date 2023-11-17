@@ -1,7 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function subscription() {
+  const router = useRouter();
   const [subscription, setSubscription] = useState({
     subscriptionType: "monthly",
     subscriptionPlan: "basic",
@@ -65,6 +67,17 @@ export default function subscription() {
   }, []);
   return (
     <section class="bg-white dark:bg-gray-900 h-[100vh]">
+      <button
+        class="bg-blue-500 absolute bottom-10 right-10 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={() => {
+          localStorage.clear();
+
+          window.location.href = "/login";
+        }}
+      >
+        Logout
+      </button>
+
       <div class="container px-6 py-8 mx-auto">
         <div class="max-w-2xl p-1.5 mx-auto overflow-hidden bg-gray-100 rounded-lg dark:bg-gray-800">
           <div class="grid gap-2 md:grid-cols-2">
@@ -140,7 +153,12 @@ export default function subscription() {
                   ))}
                 </div>
 
-                <button class="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                <button
+                  onClick={() => {
+                    router.push(`/payment/${plan.name}/${plan.price}`);
+                  }}
+                  class="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                >
                   Choose {plan.name}
                 </button>
               </div>
