@@ -14,6 +14,7 @@ export default function register() {
     );
     if (success) {
       localStorage.setItem("data", JSON.stringify(data));
+      window.location.href = "/subscription";
     } else {
       alert(message);
     }

@@ -35,7 +35,7 @@ export default function login() {
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full text-black rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
               />
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -64,7 +64,7 @@ export default function login() {
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full text-black rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
               />
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
