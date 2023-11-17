@@ -31,6 +31,31 @@ export default function subscription() {
 
         features: ["Good Video Quality", "Resolution 4k", "4 Device"],
       },
+      {
+        name: "Mobile",
+        price: 1000,
+        type: "annually",
+        features: ["Good Video Quality", "Resolution 480p", "1 Device"],
+      },
+      {
+        name: "Basic",
+        price: 2000,
+        type: "annually",
+        features: ["Good Video Quality", "Resolution 480p", "2 Device"],
+      },
+      {
+        name: "Standard",
+        price: 5000,
+        type: "annually",
+        features: ["Good Video Quality", "Resolution 1080p", "2 Device"],
+      },
+      {
+        name: "Premium",
+        price: 7000,
+        type: "annually",
+
+        features: ["Good Video Quality", "Resolution 4k", "4 Device"],
+      },
     ],
   });
   useEffect(() => {
@@ -89,6 +114,9 @@ export default function subscription() {
                   </p>
                 </div>
 
+                <p class="mt-4 text-gray-600 dark:text-gray-400">
+                  ₹ {plan.price} / {plan.type}
+                </p>
                 <div class="mt-8 space-y-8">
                   {plan.features.map((feature) => (
                     <div class="flex items-center">
