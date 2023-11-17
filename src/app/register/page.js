@@ -94,7 +94,7 @@ export default function register() {
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                className="w-full text-black rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
               />
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -125,12 +125,12 @@ export default function register() {
             onClick={handleRegister}
             className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
           >
-            Sign in
+            Sign Up
           </button>
           <p className="text-center text-sm text-gray-500">
-            No account?
-            <a className="underline" href="/register">
-              Sign up
+            Already Have an account?
+            <a className="underline" href="/login">
+              Sign In
             </a>
           </p>
         </div>
