@@ -7,10 +7,13 @@ export default function register() {
   const [password, setPassword] = React.useState("");
   const [name, setName] = React.useState("");
   const handleRegister = async () => {
-    const { data, status, message } = await API.register(email, password, name);
-    if (status) {
-      localStorage.setItem("data", data);
-      alert("Login success");
+    const { data, status, message, success } = await API.register(
+      email,
+      password,
+      name
+    );
+    if (success) {
+      localStorage.setItem("data", JSON.stringify(data));
     } else {
       alert(message);
     }
