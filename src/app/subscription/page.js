@@ -15,7 +15,7 @@ export default function subscription() {
     <section class="bg-white dark:bg-gray-900">
       <div class="container px-6 py-8 mx-auto">
         <div class="max-w-2xl p-1.5 mx-auto overflow-hidden bg-gray-100 rounded-lg dark:bg-gray-800">
-          <div class="grid gap-3 md:grid-cols-3">
+          <div class="grid gap-2 md:grid-cols-2">
             <button
               onClick={() =>
                 setSubscription({
