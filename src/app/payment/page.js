@@ -1,9 +1,11 @@
-import { useRouter } from "next/navigation";
+"use client";
+import { useRouter } from "next/router";
 import React from "react";
 
 export default function payment() {
   const router = useRouter();
-  console.log(router.query);
+  const receivedData = router;
+  console.log(receivedData);
   return (
     <div className="flex items-center justify-center h-[100vh]">
       <div className="w-full align-middle max-w-sm rounded-xl bg-layer-2 px-8 py-6">

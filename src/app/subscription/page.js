@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -153,14 +154,16 @@ export default function subscription() {
                   ))}
                 </div>
 
-                <button
-                  onClick={() => {
-                    router.push(`/payment/${plan.name}/${plan.price}`);
-                  }}
-                  class="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+                <Link
+                  href={`/payment?data=${encodeURIComponent({
+                    plan,
+                    subscriptionType: subscription.subscriptionType,
+                  })}`}
                 >
-                  Choose {plan.name}
-                </button>
+                  <button class="w-full px-4 py-2 mt-10 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+                    Choose {plan.name}
+                  </button>
+                </Link>
               </div>
             ))}
         </div>
